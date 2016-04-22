@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<project name="OwnTaskExample2" default="main" basedir=".">
+
+  <target name="build" >
+    <mkdir dir="build"/>
+    <javac srcdir="source" destdir="build"/>
+  </target>
+
+  <target name="declare" depends="build">
+    <taskdef name="mytask"
+        classname="com.mydomain.MyVeryOwnTask"
+        classpath="build"/>
+  </target>
+
+  <target name="main" depends="declare">
+    <mytask message="Hello World! MyVeryOwnTask works!"/>
+  </target>
+</project>
+
